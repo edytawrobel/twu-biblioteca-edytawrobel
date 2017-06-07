@@ -17,20 +17,22 @@ APP
 menu.showOptions();
 
 
+
 LIBRARY
 - a class:
 
 data: bookAuthor || bookYearPublished
 - show the list of all books in three columns, title, author, year
+has all the books
+and prints them out in the requested format
 
 BOOK
   - author
   - year
+  - title
+  - status
 
 MENU
      - show options; print out options
      - pick one of the four options - switch statement (1/2/3/4) - default: Invalid Menu Option;
-     - checkout book; check the list of books - available? - y: listOfBooks - book || n: "Sorry, book unavailable"
-     - return book;  check the list of books - if a book already there: "sorry, not able to accept the return"  || if not: listOfBooks + book
-     - quit;
 

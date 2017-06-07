@@ -22,7 +22,6 @@ public class BookTest {
         assertEquals(1967, aBook.getYearPublished());
     }
 
-
     @Test
     public void canCheckoutBook() throws Exception {
         assertEquals(false, aBook.isCheckedOut());

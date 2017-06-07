@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
 
+import java.util.ArrayList;
+
 public class Book {
 
     private String author;
@@ -40,4 +42,6 @@ public class Book {
         System.out.println("Thank you for returning the book");
         this.checkedOut = false;
     }
+
 }
+
