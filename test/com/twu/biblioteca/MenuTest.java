@@ -11,10 +11,20 @@ import static org.junit.Assert.*;
 public class MenuTest {
 
     Menu menu = new Menu();
+    Library library = new Library();
 
     @Test
     public void canPrintAvailableOptions() throws Exception {
         assertEquals("[1. List Books, 2. Return a Book, 3. Checkout a Book, 4. Quit]", menu.displayOptions());
     }
 
+    @Test
+    public void bookReturn() throws Exception {
+        assertEquals("Pan Tadeusz", menu.bookReturn());
+    }
+
+    @Test
+    public void bookCheckout() throws Exception {
+        assertEquals("The Little Prince", menu.bookCheckout());
+    }
 }

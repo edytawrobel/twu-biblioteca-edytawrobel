@@ -8,13 +8,12 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    public Scanner sc = new Scanner(System.in);
     private Library library = new Library();
     private Book book = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967, false);
 
     public void runMenu() {
         displayOptions();
-        actOnChoice(getUserChoice(), library);
+        actOnChoice(getUserMenuOption(), library);
     }
 
     public String displayOptions() {
@@ -24,10 +23,25 @@ public class Menu {
         return Arrays.toString(options);
     }
 
-    private int getUserChoice() {
+    private int getUserMenuOption() {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Please pick one of the available options (Enter a number). \n <<");
         int choice = sc.nextInt();
         return choice;
+    }
+
+    public String bookReturn() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a title of the book to return: \n << ");
+        String bookToReturn = sc.nextLine();
+        return bookToReturn;
+    }
+
+    public String bookCheckout() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a title of the book to checkout: \n << ");
+        String bookToCheckout = sc.nextLine();
+        return bookToCheckout;
     }
 
 
@@ -39,19 +53,20 @@ public class Menu {
                 library.formatBooksCatalogue();
                 break;
             case 2:
-                System.out.println("You are about to return a book");
+                bookReturn();
                 book.returnBook();
                 break;
             case 3:
-                System.out.println("You are about to checkout a book");
+                bookCheckout();
                 book.checkoutBook();
                 break;
             case 4:
                 System.out.println("Good bye!");
-                break;
+                return;
             default:
                 System.out.println("Select a valid option!");
         }
+        runMenu();
     }
 
 
