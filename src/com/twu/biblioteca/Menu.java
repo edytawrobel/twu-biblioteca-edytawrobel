@@ -10,7 +10,7 @@ public class Menu {
 
     public Scanner sc = new Scanner(System.in);
     private Library library = new Library();
-
+    private Book book = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967, false);
 
     public void runMenu() {
         displayOptions();
@@ -30,6 +30,7 @@ public class Menu {
         return choice;
     }
 
+
     public void actOnChoice(int choice, Library library) {
 
         switch (choice) {
@@ -39,9 +40,11 @@ public class Menu {
                 break;
             case 2:
                 System.out.println("You are about to return a book");
+                book.returnBook();
                 break;
             case 3:
                 System.out.println("You are about to checkout a book");
+                book.checkoutBook();
                 break;
             case 4:
                 System.out.println("Good bye!");
