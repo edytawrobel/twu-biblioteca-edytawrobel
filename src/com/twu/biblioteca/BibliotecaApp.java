@@ -19,12 +19,12 @@ public class BibliotecaApp {
         BibliotecaApp app = new BibliotecaApp();
         app.launchApp();
         app.library.formatBooksCatalogue();
-        app.menu.getOptions();
+        app.menu.runMenu();
     }
 
 
     public String launchApp() {
-        String welcomeText = "Welcome to the Bangalore Public Library! ";
+        String welcomeText = "Welcome to the Bangalore Public Library!\n";
         System.out.println(welcomeText);
         return welcomeText;
     }

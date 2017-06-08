@@ -14,7 +14,7 @@ public class MenuTest {
 
     @Test
     public void canPrintAvailableOptions() throws Exception {
-        assertEquals("[1. List Books, 2. Return a Book, 3. Checkout a Book, 4. Quit]", menu.getOptions());
+        assertEquals("[1. List Books, 2. Return a Book, 3. Checkout a Book, 4. Quit]", menu.displayOptions());
     }
 
 }

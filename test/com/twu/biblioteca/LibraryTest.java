@@ -13,14 +13,21 @@ import static org.junit.Assert.*;
  */
 public class LibraryTest {
 
-    private Library library = new Library();
-//    private Book aBook = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967);
-//    private List<Book> booksCatalogue = new ArrayList<Book>();
+    private Library library;
+    private Book book;
+
+    @Before
+    public void setup() {
+
+        library = new Library();
+        book = new Book("Antoine de Saint-Exupéry", "The Little Prince",1943, false);
+    }
 
     @Test
     public void formatBooksCatalogue() throws Exception {
-//        booksCatalogue.add(aBook);
-        assertEquals("The Master and Margarita, Mikhail Bulgakov, 1967\nThe Little Prince, Antoine de Saint-Exupéry, 1943\nPan Tadeusz, Adam Mickiewicz, 1834\n", library.formatBooksCatalogue());
+        assertEquals("Mikhail Bulgakov, The Master and Margarita, 1967\nAntoine de Saint-Exupéry, The Little Prince, 1943\nAdam Mickiewicz, Pan Tadeusz, 1834\n", library.formatBooksCatalogue());
     }
+
+
 
 }

@@ -10,11 +10,11 @@ public class Book {
     private int yearPublished;
     private boolean checkedOut;
 
-    public Book(String author, String title, int yearPublished) {
+    public Book(String author, String title, int yearPublished, boolean checkedOut) {
         this.author = author;
         this.title = title;
         this.yearPublished = yearPublished;
-        this.checkedOut = false;
+        this.checkedOut = checkedOut;
     }
 
     public String getAuthor() {
@@ -35,12 +35,12 @@ public class Book {
 
     public void checkoutBook() {
         System.out.println("Thank you! Enjoy the book.");
-        this.checkedOut = true;
+        checkedOut = true;
     }
 
     public void returnBook() {
         System.out.println("Thank you for returning the book");
-        this.checkedOut = false;
+        checkedOut = false;
     }
 
 }

@@ -1,15 +1,55 @@
 package com.twu.biblioteca;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Created by edytawrobel on 07/06/2017.
  */
 public class Menu {
 
-    public String getOptions() {
+    public Scanner sc = new Scanner(System.in);
+    private Library library = new Library();
+
+
+    public void runMenu() {
+        displayOptions();
+        actOnChoice(getUserChoice(), library);
+    }
+
+    public String displayOptions() {
         String[] options = {"1. List Books", "2. Return a Book", "3. Checkout a Book", "4. Quit"};
         System.out.println(Arrays.toString(options));
+
         return Arrays.toString(options);
     }
+
+    private int getUserChoice() {
+        System.out.println("Please pick one of the available options (Enter a number). \n <<");
+        int choice = sc.nextInt();
+        return choice;
+    }
+
+    public void actOnChoice(int choice, Library library) {
+
+        switch (choice) {
+            case 1:
+                System.out.println("The books currently available:");
+                library.formatBooksCatalogue();
+                break;
+            case 2:
+                System.out.println("You are about to return a book");
+                break;
+            case 3:
+                System.out.println("You are about to checkout a book");
+                break;
+            case 4:
+                System.out.println("Good bye!");
+                break;
+            default:
+                System.out.println("Select a valid option!");
+        }
+    }
+
+
 }
