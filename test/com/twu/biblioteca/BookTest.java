@@ -12,7 +12,7 @@ public class BookTest {
 
     @Before
     public void setup() {
-        aBook = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967, false);
+        aBook = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967);
     }
 
     @Test

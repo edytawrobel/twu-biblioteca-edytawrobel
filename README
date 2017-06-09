@@ -1,5 +1,5 @@
 Biblioteca
-=================================================
+===========
 
 This is how to run the code:
 
@@ -8,6 +8,7 @@ This is how to run the code:
 - run with `java BibliotecaApp`
 
 *** User stories ***
+=====================
 
 * Welcome Message
 - [x] As a customer, I would like to see a welcome message when I start the application, so that I feel welcome and know that Biblioteca is available.

@@ -10,18 +10,25 @@ public class Menu {
 
     private Library library = new Library();
     private Book book = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967, false);
+    public static final String[] OPTIONS = {"1. List Books", "2. Return a Book", "3. Checkout a Book", "4. Quit"};
+
 
     public void runMenu() {
         displayOptions();
         actOnChoice(getUserMenuOption(), library);
     }
 
+    public String launchApp() {
+        String welcomeText = "Welcome to the Bangalore Public Library!\n";
+        System.out.println(welcomeText);
+        return welcomeText;
+    }
+
     public String displayOptions() {
         System.out.println("What would you like to do next?");
-        String[] options = {"1. List Books", "2. Return a Book", "3. Checkout a Book", "4. Quit"};
-        System.out.println(Arrays.toString(options));
+        System.out.println(Arrays.toString(OPTIONS));
 
-        return Arrays.toString(options);
+        return Arrays.toString(OPTIONS);
     }
 
     private int getUserMenuOption() {
@@ -29,20 +36,6 @@ public class Menu {
         System.out.println("Enter a number for your choice: \n <<");
         int choice = sc.nextInt();
         return choice;
-    }
-
-    public String bookReturn() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter a title of the book to return: \n << ");
-        String bookToReturn = sc.nextLine();
-        return bookToReturn;
-    }
-
-    public String bookCheckout() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter a title of the book to checkout: \n << ");
-        String bookToCheckout = sc.nextLine();
-        return bookToCheckout;
     }
 
 
@@ -53,12 +46,12 @@ public class Menu {
                 library.formatBooksCatalogue();
                 break;
             case 2:
-                bookReturn();
-                book.returnBook();
+                System.out.println("You are about to return book.");
+                library.addBook();
                 break;
             case 3:
-                bookCheckout();
-                book.checkoutBook();
+                System.out.println("You are about to checkout book.");
+                library.removeBook();
                 break;
             case 4:
                 System.out.println("Good bye!");

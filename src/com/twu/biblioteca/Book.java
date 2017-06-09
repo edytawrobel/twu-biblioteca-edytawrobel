@@ -1,8 +1,6 @@
 package com.twu.biblioteca;
 
 
-import java.util.ArrayList;
-
 public class Book {
 
     private String author;
@@ -10,11 +8,11 @@ public class Book {
     private int yearPublished;
     private boolean checkedOut;
 
-    public Book(String author, String title, int yearPublished, boolean checkedOut) {
+    public Book(String author, String title, int yearPublished) {
         this.author = author;
         this.title = title;
         this.yearPublished = yearPublished;
-        this.checkedOut = checkedOut;
+        this.checkedOut = false;
     }
 
     public String getAuthor() {

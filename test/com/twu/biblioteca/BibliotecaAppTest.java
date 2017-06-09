@@ -14,10 +14,7 @@ public class BibliotecaAppTest {
         biblioteca = new BibliotecaApp();
     }
 
-    @Test
-    public void start() throws Exception {
-        assertEquals("Welcome to the Bangalore Public Library", biblioteca.launchApp());
-    }
+
 
 
 }

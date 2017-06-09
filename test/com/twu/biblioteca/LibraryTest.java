@@ -2,15 +2,14 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by edytawrobel on 07/06/2017.
@@ -18,13 +17,15 @@ import static org.junit.Assert.*;
 public class LibraryTest {
 
     private Library library;
-    private Book book;
+
+    @Mock
+    Book book;
 
     @Before
     public void setup() {
 
         library = new Library();
-        book = new Book("Antoine de Saint-Exupéry", "The Little Prince",1943, false);
+        book = new Book("Antoine de Saint-Exupéry", "The Little Prince",1943);
     }
 
 
@@ -40,9 +41,5 @@ public class LibraryTest {
                     "Adam Mickiewicz, Pan Tadeusz, 1834\n\n";
         assertEquals(expectedOutput, outContent.toString());
     }
-
-
-
-
 
 }

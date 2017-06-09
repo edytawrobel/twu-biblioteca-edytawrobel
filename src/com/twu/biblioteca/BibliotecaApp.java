@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -17,16 +15,10 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         BibliotecaApp app = new BibliotecaApp();
-        app.launchApp();
+        app.menu.launchApp();
         app.menu.runMenu();
     }
 
-
-    public String launchApp() {
-        String welcomeText = "Welcome to the Bangalore Public Library!\n";
-        System.out.println(welcomeText);
-        return welcomeText;
-    }
 
 
 }
