@@ -17,6 +17,7 @@ public class Menu {
     }
 
     public String displayOptions() {
+        System.out.println("What would you like to do next?");
         String[] options = {"1. List Books", "2. Return a Book", "3. Checkout a Book", "4. Quit"};
         System.out.println(Arrays.toString(options));
 
@@ -25,7 +26,7 @@ public class Menu {
 
     private int getUserMenuOption() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please pick one of the available options (Enter a number). \n <<");
+        System.out.println("Enter a number for your choice: \n <<");
         int choice = sc.nextInt();
         return choice;
     }
@@ -49,7 +50,6 @@ public class Menu {
 
         switch (choice) {
             case 1:
-                System.out.println("The books currently available:");
                 library.formatBooksCatalogue();
                 break;
             case 2:
