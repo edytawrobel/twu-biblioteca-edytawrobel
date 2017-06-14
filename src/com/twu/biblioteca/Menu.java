@@ -3,13 +3,12 @@ package com.twu.biblioteca;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/**
- * Created by edytawrobel on 07/06/2017.
- */
+
 public class Menu {
 
+    private static Scanner sc = new Scanner(System.in);
     private Library library = new Library();
-    private Book book = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967, false);
+    private Book book = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967);
     public static final String[] OPTIONS = {"1. List Books", "2. Return a Book", "3. Checkout a Book", "4. Quit"};
 
 
@@ -32,7 +31,6 @@ public class Menu {
     }
 
     private int getUserMenuOption() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Enter a number for your choice: \n <<");
         int choice = sc.nextInt();
         return choice;

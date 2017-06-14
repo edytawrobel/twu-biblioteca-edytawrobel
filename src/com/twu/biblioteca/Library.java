@@ -8,6 +8,8 @@ import java.util.Scanner;
  */
 public class Library {
 
+    private static Scanner sc = new Scanner(System.in);
+
     List <Book> booksCatalogue = new ArrayList<Book>();
     Book masterMargarita = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967);
     Book littlePrince = new Book("Antoine de Saint-Exupéry", "The Little Prince", 1943);
@@ -62,7 +64,6 @@ public class Library {
 
     private String getUsersBook() {
         System.out.println("Please enter the title of the book: ");
-        Scanner sc = new Scanner(System.in);
         String usersBook = sc.nextLine();
         return usersBook;
     }
