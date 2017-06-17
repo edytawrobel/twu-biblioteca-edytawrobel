@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Library {
 
     private static Scanner sc = new Scanner(System.in);
+    Book book = new Book();
 
     List <Book> booksCatalogue = new ArrayList<Book>();
     Book masterMargarita = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967);
@@ -25,20 +26,35 @@ public class Library {
         return booksCatalogue;
     }
 
-    public void addBook() {
-        String usersBook = getUsersBook();
 
-        for (Book book: booksCatalogue) {
-            if (!(usersBook.equals(book.getTitle()))) {
+    public void listAvailableBooks() {
+        System.out.println("Please find below the list of the available books:\n");
+
+        for (Book book : booksCatalogue) {
+            if(!(book.isCheckedOut())) {
+                System.out.println(book.getTitle().toString());
+            }
+        }
+
+    }
+
+    public void returnBook() {
+        Book usersBook = bookOnFile();
+        System.out.println("usersbook " + usersBook.getTitle());
+
+        for (Book book : booksCatalogue) {
+            if (!(booksCatalogue.contains(usersBook))) {
                 book.returnBook();
+                booksCatalogue.add(usersBook);
+                break;
             } else {
-                System.out.println("That is not a valid book to return");
-                return;
+                System.out.println("Invalid book to return");
+                break;
             }
         }
     }
 
-    public void removeBook() {
+    public void checkoutBook() {
         String usersBook = getUsersBook();
 
         for (Book book: booksCatalogue) {
@@ -50,21 +66,34 @@ public class Library {
         }
     }
 
-    public String formatBooksCatalogue() {
-        System.out.println("Please find below the list of the available books:\n");
-        String formattedBooksCatalogue = "";
+    public String booksCatalogue() {
+        System.out.println("Here is the library's catalogue of books:\n");
+        String allBooks = "";
         for (Book book: booksCatalogue) {
-            if (!book.isCheckedOut()) {
-                formattedBooksCatalogue += book.getAuthor() + ", " + book.getTitle() + ", " + book.getYearPublished() + "\n";
+            if (!(book.isCheckedOut())) {
+                allBooks += book.getAuthor() + ", " + book.getTitle() + ", " + book.getYearPublished() + "\n";
             }
         }
-        System.out.println(formattedBooksCatalogue);
-        return formattedBooksCatalogue;
+        System.out.println(allBooks);
+        return allBooks;
+    }
+
+    private Book bookOnFile() {
+        String usersBook = getUsersBook();
+
+        for (Book book : booksCatalogue) {
+            if (book.getTitle().equals(usersBook)) {
+                System.out.println("BOOK" + usersBook.toString());
+                return book;
+            }
+        }
+        return book;
     }
 
     private String getUsersBook() {
         System.out.println("Please enter the title of the book: ");
         String usersBook = sc.nextLine();
+        book.setTitle(usersBook);
         return usersBook;
     }
 

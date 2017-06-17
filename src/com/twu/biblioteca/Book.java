@@ -15,6 +15,12 @@ public class Book {
         this.checkedOut = false;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Book() {}
+
     public String getAuthor() {
         return author;
     }

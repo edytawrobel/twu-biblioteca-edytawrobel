@@ -41,15 +41,15 @@ public class Menu {
 
         switch (choice) {
             case 1:
-                library.formatBooksCatalogue();
+                library.listAvailableBooks();
                 break;
             case 2:
                 System.out.println("You are about to return book.");
-                library.addBook();
+                library.returnBook();
                 break;
             case 3:
                 System.out.println("You are about to checkout book.");
-                library.removeBook();
+                library.checkoutBook();
                 break;
             case 4:
                 System.out.println("Good bye!");
