@@ -8,8 +8,7 @@ public class Menu {
 
     private static Scanner sc = new Scanner(System.in);
     private Library library = new Library();
-    private Book book = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967);
-    public static final String[] OPTIONS = {"1. List Books", "2. Return a Book", "3. Checkout a Book", "4. Quit"};
+    public static final String[] OPTIONS = {"1. List Books", "2. Return a Book", "3. Checkout a Book", "4. List Movies", "5. Return a Movie", "6. Checkout a Movie", "7. Quit"};
 
 
     public void runMenu() {
@@ -44,14 +43,25 @@ public class Menu {
                 library.listAvailableBooks();
                 break;
             case 2:
-                System.out.println("You are about to return book.");
+                System.out.println("You are about to return a book.");
                 library.returnBook();
                 break;
             case 3:
-                System.out.println("You are about to checkout book.");
+                System.out.println("You are about to checkout a book.");
                 library.checkoutBook();
                 break;
             case 4:
+                library.listAvailableMovies();
+                break;
+            case 5:
+                System.out.println("You are about to return a movie.");
+                library.returnMovie();
+                break;
+            case 6:
+                System.out.println("You are about to checkout a movie.");
+                library.checkoutMovie();
+                break;
+            case 7:
                 System.out.println("Good bye!");
                 return;
             default:

@@ -10,22 +10,34 @@ public class Library {
 
     private static Scanner sc = new Scanner(System.in);
     Book book = new Book();
+    Movie movie = new Movie();
 
     List <Book> booksCatalogue = new ArrayList<Book>();
     Book masterMargarita = new Book("Mikhail Bulgakov", "The Master and Margarita", 1967);
     Book littlePrince = new Book("Antoine de Saint-Exupéry", "The Little Prince", 1943);
     Book panTadeusz = new Book("Adam Mickiewicz", "Pan Tadeusz",1834);
 
-    public Library() {
-        booksCatalogue.add(masterMargarita);
-        booksCatalogue.add(littlePrince);
-        booksCatalogue.add(panTadeusz);
-    }
+    List<Movie> moviesCatalogue = new ArrayList<Movie>();
+    Movie devilWearsPrada = new Movie("David Frankel", "The Devil Wears Prada", 2006, 7);
+    Movie gifted = new Movie("Marc Webb", "Gifted", 2017, 8);
+    Movie pianist = new Movie("Roman Polanski", "The Pianist", 2002, 9);
 
-    public List<Book> getBooksCatalogue() {
+   public Library() {
+       booksCatalogue.add(masterMargarita);
+       booksCatalogue.add(littlePrince);
+       booksCatalogue.add(panTadeusz);
+       moviesCatalogue.add(devilWearsPrada);
+       moviesCatalogue.add(gifted);
+       moviesCatalogue.add(pianist);
+   }
+
+    public List<Book> getBookRegister() {
         return booksCatalogue;
     }
 
+    public List<Movie> getMovieRegister() {
+        return moviesCatalogue;
+    }
 
     public void listAvailableBooks() {
         System.out.println("Please find below the list of the available books:\n");
@@ -35,6 +47,43 @@ public class Library {
                 System.out.println(book.getTitle().toString() + "\n");
             }
         }
+    }
+
+    public void listAvailableMovies() {
+        System.out.println("Please find below the list of the available movies:\n");
+
+        for (Movie movie : moviesCatalogue) {
+            if(!(movie.isCheckedOut())) {
+                System.out.println(movie.getTitle().toString() + "\n");
+            }
+        }
+    }
+
+    public void fullCatalogue() {
+        System.out.println("Here is the library's catalogue:\n");
+        printBooks();
+        printMovies();
+    }
+
+    private String printMovies() {
+        String allMovies = "";
+
+        for (Movie movie: moviesCatalogue) {
+            allMovies += movie.getAuthor() + " | " + movie.getTitle() + " | " + movie.getYearPublished() + " | " + "rating: " + movie.getRating() + "\n";
+
+        }
+        System.out.println("Movies on catalogue:" + "\n" + allMovies);
+        return allMovies;
+    }
+
+    private String printBooks() {
+        String allBooks = "";
+        for (Book book: booksCatalogue) {
+            allBooks += book.getAuthor() + " | " + book.getTitle() + " | " + book.getYearPublished() + "\n";
+
+        }
+        System.out.println("Books on catalogue:" + "\n" + allBooks);
+        return allBooks;
     }
 
     public void returnBook() {
@@ -52,9 +101,23 @@ public class Library {
         }
     }
 
+    public void returnMovie() {
+        Movie usersMovie = movieOnFile();
+
+        for (Movie movie : moviesCatalogue) {
+            if (!(moviesCatalogue.contains(usersMovie))) {
+                movie.returnItem();
+                moviesCatalogue.add(usersMovie);
+                break;
+            } else {
+                System.out.println("Invalid book to return");
+                break;
+            }
+        }
+    }
 
     public void checkoutBook() {
-        String usersBook = getUsersBook();
+        String usersBook = getUsersItem();
 
         for (Book book: booksCatalogue) {
             if (usersBook.equals(book.getTitle())) {
@@ -63,20 +126,29 @@ public class Library {
         }
     }
 
-    public String booksCatalogue() {
-        System.out.println("Here is the library's catalogue of books:\n");
-        String allBooks = "";
-        for (Book book: booksCatalogue) {
-            if (!(book.isCheckedOut())) {
-                allBooks += book.getAuthor() + " | " + book.getTitle() + " | " + book.getYearPublished() + "\n";
+    public void checkoutMovie() {
+        String usersMovie = getUsersItem();
+
+        for (Movie movie: moviesCatalogue) {
+            if (usersMovie.equals(movie.getTitle())) {
+                movie.checkoutItem();
             }
         }
-        System.out.println(allBooks);
-        return allBooks;
+    }
+
+    private Movie movieOnFile() {
+        String usersMovie = getUsersItem();
+
+        for (Movie movie : moviesCatalogue) {
+            if (movie.getTitle().equals(usersMovie)) {
+                return movie;
+            }
+        }
+        return movie;
     }
 
     private Book bookOnFile() {
-        String usersBook = getUsersBook();
+        String usersBook = getUsersItem();
 
         for (Book book : booksCatalogue) {
             if (book.getTitle().equals(usersBook)) {
@@ -86,14 +158,11 @@ public class Library {
         return book;
     }
 
-    private String getUsersBook() {
-        System.out.println("Please enter the title of the book: ");
-        String usersBook = sc.nextLine();
-        book.setTitle(usersBook);
-        return usersBook;
+    private String getUsersItem() {
+        System.out.println("Please enter the title:");
+        String usersItem = sc.nextLine();
+        book.setTitle(usersItem);
+        movie.setTitle(usersItem);
+        return usersItem;
     }
-
-
-
-
 }
