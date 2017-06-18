@@ -1,51 +1,27 @@
 package com.twu.biblioteca;
 
 
-public class Book {
-
-    private String author;
-    private String title;
-    private int yearPublished;
-    private boolean checkedOut;
+public class Book extends Item {
 
     public Book(String author, String title, int yearPublished) {
-        this.author = author;
-        this.title = title;
-        this.yearPublished = yearPublished;
-        this.checkedOut = false;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+        super(author, title, yearPublished);
     }
 
     public Book() {}
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public int getYearPublished() {
-        return yearPublished;
-    }
-
-    public boolean isCheckedOut() {
-        return checkedOut;
-    }
-
-    public void checkoutBook() {
+    @Override
+    public void checkoutItem() {
+        super.checkoutItem();
         System.out.println("Thank you! Enjoy the book.");
-        checkedOut = true;
     }
 
-    public void returnBook() {
+    @Override
+    public void returnItem() {
+        super.returnItem();
         System.out.println("Thank you for returning the book");
-        checkedOut = false;
     }
+
+
 
 }
 

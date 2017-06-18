@@ -25,15 +25,15 @@ public class BookTest {
     @Test
     public void canCheckoutBook() throws Exception {
         assertEquals(false, aBook.isCheckedOut());
-        aBook.checkoutBook();
+        aBook.checkoutItem();
         assertEquals(true, aBook.isCheckedOut());
     }
 
     @Test
     public void canReturnBook() throws Exception {
-        aBook.checkoutBook();
+        aBook.checkoutItem();
         assertEquals(true, aBook.isCheckedOut());
-        aBook.returnBook();
+        aBook.returnItem();
         assertEquals(false, aBook.isCheckedOut());
     }
 

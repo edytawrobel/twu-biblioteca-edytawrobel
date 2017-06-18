@@ -39,11 +39,10 @@ public class Library {
 
     public void returnBook() {
         Book usersBook = bookOnFile();
-        System.out.println("usersbook " + usersBook.getTitle());
 
         for (Book book : booksCatalogue) {
             if (!(booksCatalogue.contains(usersBook))) {
-                book.returnBook();
+                book.returnItem();
                 booksCatalogue.add(usersBook);
                 break;
             } else {
@@ -59,7 +58,7 @@ public class Library {
 
         for (Book book: booksCatalogue) {
             if (usersBook.equals(book.getTitle())) {
-                book.checkoutBook();
+                book.checkoutItem();
             }
         }
     }
@@ -69,7 +68,7 @@ public class Library {
         String allBooks = "";
         for (Book book: booksCatalogue) {
             if (!(book.isCheckedOut())) {
-                allBooks += book.getAuthor() + ", " + book.getTitle() + ", " + book.getYearPublished() + "\n";
+                allBooks += book.getAuthor() + " | " + book.getTitle() + " | " + book.getYearPublished() + "\n";
             }
         }
         System.out.println(allBooks);
