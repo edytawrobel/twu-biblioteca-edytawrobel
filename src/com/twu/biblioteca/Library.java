@@ -32,10 +32,9 @@ public class Library {
 
         for (Book book : booksCatalogue) {
             if(!(book.isCheckedOut())) {
-                System.out.println(book.getTitle().toString());
+                System.out.println(book.getTitle().toString() + "\n");
             }
         }
-
     }
 
     public void returnBook() {
@@ -54,14 +53,13 @@ public class Library {
         }
     }
 
+
     public void checkoutBook() {
         String usersBook = getUsersBook();
 
         for (Book book: booksCatalogue) {
             if (usersBook.equals(book.getTitle())) {
                 book.checkoutBook();
-            } else {
-                System.out.println("That book is not available.");
             }
         }
     }
@@ -83,7 +81,6 @@ public class Library {
 
         for (Book book : booksCatalogue) {
             if (book.getTitle().equals(usersBook)) {
-                System.out.println("BOOK" + usersBook.toString());
                 return book;
             }
         }
