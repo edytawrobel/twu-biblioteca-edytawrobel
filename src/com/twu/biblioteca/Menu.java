@@ -8,12 +8,8 @@ public class Menu {
 
     private static Scanner sc = new Scanner(System.in);
     private Library library = new Library();
-    private User user = new User();
     public static final String[] OPTIONS = {"1. List Books", "2.Print User Info", "3. Return a Book", "4. Checkout a Book", "5. List Movies", "6. Return a Movie", "7. Checkout a Movie", "8. Quit"};
-
-    public User getUser() {
-        return user;
-    }
+    UserCatalogue userCatalogue = new UserCatalogue();
 
     public void runMenu() {
         displayOptions();
@@ -39,15 +35,6 @@ public class Menu {
         return choice;
     }
 
-    private void printUserInformation() {
-        try {
-            System.out.println(getUser().toString());
-        } catch (Exception e) {
-            System.out.println("You need to be signed in!");
-        }
-    }
-
-
     public void actOnChoice(int choice, Library library) {
 
         switch (choice) {
@@ -55,7 +42,7 @@ public class Menu {
                 library.listAvailableBooks();
                 break;
             case 2:
-                printUserInformation();
+                userCatalogue.printUserInformation();
                 break;
             case 3:
                 System.out.println("You are about to return a book.");
