@@ -16,21 +16,20 @@ public class MenuTest {
 
     Menu menu = new Menu();
 
-
     @Mock
     Library library;
 
 
     @Test
     public void canPrintAvailableOptions() throws Exception {
-        assertEquals("[1. List Books, 2. Return a Book, 3. Checkout a Book, 4. Quit]", menu.displayOptions());
+        assertEquals("[1. List Books, 2.Print User Info, 3. Return a Book, 4. Checkout a Book, 5. List Movies, 6. Return a Movie, 7. Checkout a Movie, 8. Quit]", menu.displayOptions());
     }
 
     @Test
     public void noExceptionIsThrownWhenUserQuits() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        menu.actOnChoice(4, library);
+        menu.actOnChoice(8, library);
         String expectedOutputSubstr  = "Good bye";
         assertTrue(outContent.toString().contains(expectedOutputSubstr));
     }

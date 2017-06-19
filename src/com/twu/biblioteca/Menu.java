@@ -9,7 +9,7 @@ public class Menu {
     private static Scanner sc = new Scanner(System.in);
     private Library library = new Library();
     public static final String[] OPTIONS = {"1. List Books", "2.Print User Info", "3. Return a Book", "4. Checkout a Book", "5. List Movies", "6. Return a Movie", "7. Checkout a Movie", "8. Quit"};
-    UserCatalogue userCatalogue = new UserCatalogue();
+    UserAccount userAccount = new UserAccount();
 
     public void runMenu() {
         displayOptions();
@@ -42,7 +42,7 @@ public class Menu {
                 library.listAvailableBooks();
                 break;
             case 2:
-                userCatalogue.printUserInformation();
+                userAccount.printUserInformation();
                 break;
             case 3:
                 System.out.println("You are about to return a book.");

@@ -8,10 +8,10 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String libraryID;
+    private int libraryID;
     private long phone_number;
 
-    public User(String name, String email, long phone_number, String password, String libraryID) {
+    public User(String name, String email, long phone_number, String password, int libraryID) {
         this.name = name;
         this.email = email;
         this.phone_number = phone_number;
@@ -32,6 +32,16 @@ public class User {
     public long getPhone_number() {
         return phone_number;
     }
+
+    public boolean verifyLibraryID(int libraryIDtoCheck) {
+        return libraryIDtoCheck == libraryID;
+
+    }
+
+    public boolean verifyPassword(String passwordToCheck) {
+        return passwordToCheck == password;
+    }
+
 
     public String toString() {
         return String.format(
